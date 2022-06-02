@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebAppCar1.Models.Person>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.person_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.person_FName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.person_LName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.person_Phone)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.person_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.person_FName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.person_LName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.person_Phone)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.person_ID }, new { @class = "btn btn-primary" }) 
+                @Html.ActionLink("Details", "Details", new {  id=item.person_ID }, new { @class = "btn btn-info" }) 
+                @Html.ActionLink("Delete", "Delete", new {  id=item.person_ID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

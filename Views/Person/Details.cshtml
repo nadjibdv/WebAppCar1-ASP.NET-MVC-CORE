@@ -1,0 +1,44 @@
+﻿@model WebAppCar1.Models.Person
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Person</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.person_ID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.person_ID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.person_FName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.person_FName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.person_LName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.person_LName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.person_Phone)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.person_Phone)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.person_ID } , new { @class = "btn btn-primary" }) 
+  
+    <a asp-action="Index"
+       class="btn btn-outline-info">Back to List</a>
+</div>

@@ -1,0 +1,55 @@
+﻿@model WebAppCar1.Models.ViewModels.CarViewMoels2
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CarViewMoels2</h4>
+    <hr />
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="car_ID" class="control-label"></label>
+        <input asp-for="car_ID" class="form-control" readonly />
+        <span asp-validation-for="car_ID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="car_Name" class="control-label"></label>
+        <input readonly asp-for="car_Name" class="form-control" />
+        <span asp-validation-for="car_Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="car_Plate" class="control-label"></label>
+        <input asp-for="car_Plate" class="form-control" readonly />
+        <span asp-validation-for="car_Plate" class="text-danger"></span>
+    </div>
+
+
+
+    <div class="form-group">
+        <label asp-for="person_ID" class="control-label"></label>
+        <select readonly asp-for="person_ID" class="form-control"
+                asp-items="@(new SelectList(Model.car_Person_List.ToList() ,"person_ID" ,"person_FName" , @Model.person_ID ))"></select>
+        <span asp-validation-for="person_ID" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="car_File" class="control-label"></label>
+
+        <span asp-validation-for="car_File" class="text-danger"></span>
+
+        <img src="~/uploads/@Model.car_ImageUrl" style="width:124px;" class="img-thumbnail" />
+    </div>
+
+
+    <form asp-action="Delete">
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-outline-info">Back to List</a>
+    </form>
+
+
+</div>
